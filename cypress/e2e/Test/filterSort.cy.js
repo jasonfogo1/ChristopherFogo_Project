@@ -39,7 +39,6 @@ describe('Sort and Filter', () => {
         cy.wait(1500);
         cy.get(ProductsPage.selectFilter).should('have.value', 'pant');
         cy.get(ProductsPage.productCategory).each(($element, index) => {
-            cy.get(ProductsPage.selectFilter).should('have.value', 'pant');
             expect($element.text()).equal('pants');
         })
 
