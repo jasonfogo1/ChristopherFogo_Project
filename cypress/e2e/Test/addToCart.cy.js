@@ -44,7 +44,6 @@ describe('Add to Cart', () => {
             cy.get(CartPage.topCartItem).should('have.text', ' '+product+' ');                //Checks if item added to cart is the correct item
             cy.get(CartPage.btnContinueShopping).click()
             cy.wait(2500);
-            cy.log('I went here');
         }
         let product2 = 'Quality Hooded Sweatshirt'
         ProductPage.addProductToCart(product2); 
