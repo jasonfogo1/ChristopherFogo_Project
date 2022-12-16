@@ -57,7 +57,8 @@ class ProductPage {
         let prodAddBtn = this.AddToCartButtons(product);
         cy.get(prodAddBtn).scrollIntoView();
         cy.wait(2500);
-        cy.get(prodAddBtn).click();
+        cy.get(prodAddBtn).click({ force: true });
+        
     }
 
 
