@@ -30,6 +30,9 @@ class CartPage{
     get topCartItem(){
         return('li:nth-child(1) > div > div > div.snipcart-item-line__header > h2');
     }
+    get btnCheckout(){
+        return('.snipcart-button-primary');
+    }
     
 }
 export default new CartPage()
