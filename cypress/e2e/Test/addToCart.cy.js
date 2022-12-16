@@ -32,7 +32,7 @@ describe('Add to Cart', () => {
         cy.get(CartPage.topCartItem).should('have.text', ' ' + product + ' ');                //Checks if item added to cart is the correct item
 
     })
-    it.only('Verify a user can add multiple products to the cart from Products Gallery page.', () => {
+    it('Verify a user can add multiple products to the cart from Products Gallery page.', () => {
         let product = 'Quality Pink Pants'
         ProductPage.addProductToCart(product);                                            // Adds Item defined as product to cart
         cy.wait(2500);
