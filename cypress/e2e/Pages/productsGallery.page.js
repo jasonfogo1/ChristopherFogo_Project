@@ -14,6 +14,9 @@ class ProductPage {
     get selectSort() {
         return ('#sort');
     }
+    get inputsearchName(){
+        return('#search');
+    }
     get selectFilter() {
         return ('#category');
     }
@@ -56,6 +59,8 @@ class ProductPage {
         cy.wait(2500);
         cy.get(prodAddBtn).click();
     }
+
+
 
 }
 export default new ProductPage()
