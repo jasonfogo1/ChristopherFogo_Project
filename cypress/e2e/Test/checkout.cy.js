@@ -4,7 +4,7 @@ import ProductPage from '../Pages/productsGallery.page.js'
 import CartPage from '../Pages/cart.page.js'
 import BillingPage from '../Pages/billing.page.js'
 import OrderCompletePage from '../Pages/orderComplete.page.js'
-describe('Add to Cart', () => {
+describe('Checkout', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.get(HomePage.btnSignInorReg).click();
