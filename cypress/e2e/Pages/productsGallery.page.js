@@ -40,7 +40,7 @@ class ProductPage {
     }
 
     AddToCartButtons(prodname) {
-        prodname = '[data-item-name="' + prodname + '"]'//accept 
+        prodname = '[data-item-name="' + prodname + '"]'    
         return prodname;
     }
 
@@ -48,7 +48,6 @@ class ProductPage {
         let products = [];
         cy.get(this.productName).each(($elem, index) => {
             products[index] = $elem.text();
-            cy.log(products[index]);
         })
         return products;
     }
@@ -57,7 +56,8 @@ class ProductPage {
         let prodAddBtn = this.AddToCartButtons(product);
         cy.get(prodAddBtn).scrollIntoView();
         cy.wait(2500);
-        cy.get(prodAddBtn).click();
+        cy.get(prodAddBtn).click({ force: true });
+        
     }
 
 

@@ -27,24 +27,24 @@ describe('Product Details Page', () => {
         cy.get(ProductPage.qualityKidsShirt).click();
         cy.wait(2500);
         cy.get(PDetailsPage.relatedItemCategory).each(($element) => {
-            expect($element.text()).equal('shirt');
+            expect($element.text()).equal('shirt');                           // Checks each product in related products has category 'shirt'
         })
     })
     
     it('Verify Quantity can be increased on product details page', () => {
-        PDetailsPage.increaseProduct();
+        PDetailsPage.increaseProduct();                         // Increases the quantity of product
         cy.wait(2500);
-        cy.get(CartPage.cartIcon).should('have.text', ' 2 ');
+        cy.get(CartPage.cartIcon).should('have.text', ' 2 ');   // Checks cart badge number is 2
     })
 
     it('Verify user can navigate through product images', () => {
         cy.get(ProductPage.qualityKidsShirt).click();
         cy.wait(2500);
-        PDetailsPage.scrollImages('next');
+        PDetailsPage.scrollImages('next');                  // Function used to click next product image button 
         cy.wait(1500);
-        cy.get(PDetailsPage.btnPrevImg).should('exist');
-        PDetailsPage.scrollImages('prev');
+        cy.get(PDetailsPage.btnPrevImg).should('exist');     // Check the click previous product image button exist
+        PDetailsPage.scrollImages('prev');                  // Function used to click previous product image button 
         cy.wait(1500);
-        cy.get(PDetailsPage.btnNextImg).should('exist');
+        cy.get(PDetailsPage.btnNextImg).should('exist');    // Check the click next product image button exist
     })
 })
