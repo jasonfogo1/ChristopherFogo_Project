@@ -43,7 +43,7 @@ describe('Sort and Filter', () => {
         })
 
     })
-    it('Should reset filters', () => {
+    it('Validate Reset filters button removes all filters', () => {
         cy.get(ProductsPage.selectFilter).select('pant');
         cy.get(ProductsPage.selectSort).select('aToZ');
         cy.get(ProductsPage.btnReset).click();
