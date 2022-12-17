@@ -18,7 +18,18 @@ class PDetailsPage {
     get btndecreaseQuantity() {
         return ('#product-decrease');
     }
-
+    get btnfavorite() {
+        return ('#add-to-favorite')
+    }
+    get btnRemoveFromfavorite() {
+        return ('#remove-from-favorite');
+    }
+    get favoritesPopup() {
+        return ('.chakra-alert__title.css-tidvy5');
+    }
+    get closePopup() {
+        return ('[aria-label="Close"]');
+    }
 
     addToCart() {
         cy.get(ProductPage.qualityMousepad).scrollIntoView();
@@ -37,6 +48,12 @@ class PDetailsPage {
         direction = 'button[class="control-arrow control-' + direction      //allows to select next or prev
         cy.get(direction).trigger('mouseover');
         cy.get(direction).click();
+    }
+    addProductToFavorite() {
+        cy.wait(1500);
+        cy.get(ProductPage.qualityKidsShirt).click({ force: true });
+        cy.wait(3500);
+        cy.get(this.btnfavorite).click();
     }
 }
 export default new PDetailsPage()
