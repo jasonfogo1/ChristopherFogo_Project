@@ -17,6 +17,7 @@ describe('Sort and Filter', () => {
         cy.url().should('eq', 'https://ui-automation-camp.vercel.app/products')
 
     })
+
     it('Verify user can Sort Z to A', () => {
 
         let products = [];
@@ -24,17 +25,74 @@ describe('Sort and Filter', () => {
             products[index] = $elem.text();                                         // Add each product name on the page to an array
         })
             .then(() => {
+<<<<<<< HEAD
+                cy.get(ProductsPage.selectSort).select('zToA');// Select sort Z to A
+=======
                 cy.get(ProductsPage.selectSort).select('zToA');                     // Select sort Z to A which will sorts products on the page
+>>>>>>> 26c3bd7c85be9887e3bcd5efa276aa0c3e75984a
                 cy.wait(1500);
                 products.sort().reverse();                                          // Sorts arrary of all product names from Z to A
                 cy.get(ProductsPage.productName).each(($element, itemIndex) => {
                     expect($element.text()).equal(products[itemIndex]);             // Checks the each product name on the page against the names in the array
                 })
             })
+<<<<<<< HEAD
+    })
+
+    it('Verify user can Sort A to Z', () => {
+        let products = [];
+        cy.get(ProductsPage.productName).each(($elem, index) => {
+            products[index] = $elem.text();
+        })
+            .then(() => {
+                cy.get(ProductsPage.selectSort).select('aToZ');// Select sort A to Z
+                cy.wait(1500);
+                products.sort();
+                cy.get(ProductsPage.productName).each(($element, itemIndex) => {
+                    expect($element.text()).equal(products[itemIndex]);
+                })
+
+            })
+    })
+
+    it('Verify user can Sort low to high', () => {
+        let products = [];
+        cy.get(ProductsPage.productPrice).each(($elem, index) => {
+            products[index] = $elem.text().replaceAll('$', '');
+        })
+            .then(() => {
+                cy.get(ProductsPage.selectSort).select('lowToHigh');// Select sort low to high
+                cy.wait(1500);
+                products.sort(function (a, b) { return a - b });
+                cy.get(ProductsPage.productPrice).each(($element, itemIndex) => {
+                    expect($element.text()).equal('$' + products[itemIndex]);
+                })
+            })
+    })
+
+    it('Verify user can Sort high to low', () => {
+        let products = [];
+        cy.get(ProductsPage.productPrice).each(($elem, index) => {
+            products[index] = $elem.text().replaceAll('$', '');
+        })
+            .then(() => {
+                cy.get(ProductsPage.selectSort).select('highToLow');// Select sort high to low
+                cy.wait(1500);
+                products.sort(function (a, b) { return a - b }).reverse();
+                cy.get(ProductsPage.productPrice).each(($element, itemIndex) => {
+                    expect($element.text()).equal('$' + products[itemIndex]);
+                })
+            })
+    })
+
+    it('Verify user can filter by pants', () => {
+        cy.get(ProductsPage.selectFilter).select('pant');   // Select Pants filter
+=======
     })
 
     it('Verify user can filter by pants category', () => {
         cy.get(ProductsPage.selectFilter).select('pant');                   // Select Pants filter
+>>>>>>> 26c3bd7c85be9887e3bcd5efa276aa0c3e75984a
         cy.wait(1500);
         cy.get(ProductsPage.selectFilter).should('have.value', 'pant');     // Checks Pants is selected in the filter 
         cy.get(ProductsPage.productCategory).each(($element, index) => {
