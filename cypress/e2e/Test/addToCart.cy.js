@@ -6,16 +6,7 @@ import PDetailsPage from '../Pages/productDetail.page.js'
 import CartPage from '../Pages/cart.page.js'
 describe('Add to Cart', () => {
     beforeEach(() => {
-        cy.visit('/');
-        cy.get(HomePage.btnSignInorReg).click();
-        cy.origin(
-            "https://dev-mlluudmotpwoldtv.us.auth0.com",
-            { args: {} },
-            ({ }) => {
-                cy.get('[type="email"]').type("volevelowa-69345@yopmail.com");
-                cy.get('[type="password"]').type("Password1", { log: false });
-                cy.get("[name='submit']").click();
-            });
+        cy.visit('/products');
             cy.wait(1500);
     })
 

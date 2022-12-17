@@ -73,7 +73,7 @@ describe('Authentication', () => {
             "https://dev-mlluudmotpwoldtv.us.auth0.com",
             { args: {} },
             ({ }) => {
-                cy.get('[type="email"]').type("vt@yopmail.com");                //Enters a invalid Email
+                cy.get('[type="email"]').type("notworking@yopmail.com");                //Enters a invalid Email
                 cy.get('[type="password"]').type("Password1");
                 cy.get("[name=submit]").click();
             });

@@ -30,7 +30,7 @@ class ProductPage {
         return ('#top-sign-out');
     }
     get productPrice() {
-        return ('.chakra-text.css-0');
+        return ('div > div.chakra-stack.css-1ieohnc > p');
     }
     get qualityMug() {
         return ('img[src="/images/quality-mug.jpg"]');
@@ -55,7 +55,7 @@ class ProductPage {
     addProductToCart(product) {
         let prodAddBtn = this.AddToCartButtons(product);
         cy.get(prodAddBtn).scrollIntoView();
-        cy.wait(2500);
+        cy.wait(3000);
         cy.get(prodAddBtn).click({ force: true });
         
     }
