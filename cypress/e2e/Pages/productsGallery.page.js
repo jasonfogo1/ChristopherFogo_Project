@@ -14,8 +14,8 @@ class ProductPage {
     get selectSort() {
         return ('#sort');
     }
-    get inputsearchName(){
-        return('#search');
+    get inputsearchName() {
+        return ('#search');
     }
     get selectFilter() {
         return ('#category');
@@ -38,9 +38,20 @@ class ProductPage {
     get qualityKidsShirt() {
         return ('img[src="/images/quality-tshirt-kids.jpg"]');
     }
-
+    get btnfavorite() {
+        return ('#add-to-favorite')
+    }
+    get btnRemoveFromfavorite() {
+        return ('#remove-from-favorite');
+    }
+    get fittedHatFavorites() {
+        return ('#product-0 #add-to-favorite');
+    }
+    get qualityMugFavorites() {
+        return ('#product-3 #add-to-favorite');
+    }
     AddToCartButtons(prodname) {
-        prodname = '[data-item-name="' + prodname + '"]'    
+        prodname = '[data-item-name="' + prodname + '"]'
         return prodname;
     }
 
@@ -57,7 +68,11 @@ class ProductPage {
         cy.get(prodAddBtn).scrollIntoView();
         cy.wait(2500);
         cy.get(prodAddBtn).click({ force: true });
-        
+
+    }
+    addProductsToFavorite() {
+        cy.get(this.fittedHatFavorites).click();
+        cy.get(this.qualityMugFavorites).click();
     }
 
 
