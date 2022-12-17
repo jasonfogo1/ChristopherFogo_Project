@@ -11,7 +11,7 @@ describe('Cart', () => {
     it('Validate an Item can be removed from cart from detailed cart page', () => {
         let product = 'Quality Hooded Sweatshirt'
         ProductPage.addProductToCart(product);
-        cy.wait(1500);
+        cy.wait(2500);
         cy.get(Cart.removeItem).click();
         cy.get(Cart.cartIcon).should('have.text', ' 0 ');
     })

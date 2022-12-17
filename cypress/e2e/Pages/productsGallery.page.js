@@ -48,7 +48,6 @@ class ProductPage {
         let products = [];
         cy.get(this.productName).each(($elem, index) => {
             products[index] = $elem.text();
-            cy.log(products[index]);
         })
         return products;
     }

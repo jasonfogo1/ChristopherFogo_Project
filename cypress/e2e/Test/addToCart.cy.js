@@ -16,6 +16,7 @@ describe('Add to Cart', () => {
                 cy.get('[type="password"]').type("Password1", { log: false });
                 cy.get("[name='submit']").click();
             });
+            cy.wait(1500);
     })
 
     it('Verify a user can add a product to the cart from product details page.', () => {
