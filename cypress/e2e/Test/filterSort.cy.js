@@ -41,9 +41,9 @@ describe('Sort and Filter', () => {
             expect($element.text()).equal('pants');                         // Checks each Product has category pants
         })
     })
-    
-    it('Should reset filters', () => {
-        cy.get(ProductsPage.selectFilter).select('pant');               
+
+    it('Validate Reset filters button removes all filters', () => {
+        cy.get(ProductsPage.selectFilter).select('pant');
         cy.get(ProductsPage.selectSort).select('aToZ');
         cy.get(ProductsPage.btnReset).click();                              // clicks the reset filter button
         cy.get(ProductsPage.selectFilter).should('have.value', '');         // Checks Category has no filter
