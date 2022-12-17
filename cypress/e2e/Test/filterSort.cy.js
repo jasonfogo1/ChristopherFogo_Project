@@ -25,18 +25,14 @@ describe('Sort and Filter', () => {
             products[index] = $elem.text();                                         // Add each product name on the page to an array
         })
             .then(() => {
-<<<<<<< HEAD
                 cy.get(ProductsPage.selectSort).select('zToA');// Select sort Z to A
-=======
                 cy.get(ProductsPage.selectSort).select('zToA');                     // Select sort Z to A which will sorts products on the page
->>>>>>> 26c3bd7c85be9887e3bcd5efa276aa0c3e75984a
                 cy.wait(1500);
                 products.sort().reverse();                                          // Sorts arrary of all product names from Z to A
                 cy.get(ProductsPage.productName).each(($element, itemIndex) => {
                     expect($element.text()).equal(products[itemIndex]);             // Checks the each product name on the page against the names in the array
                 })
             })
-<<<<<<< HEAD
     })
 
     it('Verify user can Sort A to Z', () => {
@@ -87,12 +83,10 @@ describe('Sort and Filter', () => {
 
     it('Verify user can filter by pants', () => {
         cy.get(ProductsPage.selectFilter).select('pant');   // Select Pants filter
-=======
     })
 
     it('Verify user can filter by pants category', () => {
         cy.get(ProductsPage.selectFilter).select('pant');                   // Select Pants filter
->>>>>>> 26c3bd7c85be9887e3bcd5efa276aa0c3e75984a
         cy.wait(1500);
         cy.get(ProductsPage.selectFilter).should('have.value', 'pant');     // Checks Pants is selected in the filter 
         cy.get(ProductsPage.productCategory).each(($element, index) => {
