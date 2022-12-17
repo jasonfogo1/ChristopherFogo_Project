@@ -39,7 +39,7 @@ describe('Wishlist/Favorites', () => {
 
 
     })
-    it('Verify each product can be added to favourites on product gallery page', () => {
+    it('Verify multiple products can be added to favourites on product gallery page', () => {
         ProductsPage.addProductsToFavorite();
         cy.get(FavoritesPage.btnNavfavorites).should('contain', '2');
     })
