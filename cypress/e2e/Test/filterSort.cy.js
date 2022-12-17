@@ -22,17 +22,21 @@ describe('Sort and Filter', () => {
 
         let products = [];
         cy.get(ProductsPage.productName).each(($elem, index) => {
-            products[index] = $elem.text();
+            products[index] = $elem.text();                                         // Add each product name on the page to an array
         })
             .then(() => {
+<<<<<<< HEAD
                 cy.get(ProductsPage.selectSort).select('zToA');// Select sort Z to A
+=======
+                cy.get(ProductsPage.selectSort).select('zToA');                     // Select sort Z to A which will sorts products on the page
+>>>>>>> 26c3bd7c85be9887e3bcd5efa276aa0c3e75984a
                 cy.wait(1500);
-                products.sort().reverse();
+                products.sort().reverse();                                          // Sorts arrary of all product names from Z to A
                 cy.get(ProductsPage.productName).each(($element, itemIndex) => {
-                    expect($element.text()).equal(products[itemIndex]);
+                    expect($element.text()).equal(products[itemIndex]);             // Checks the each product name on the page against the names in the array
                 })
-
             })
+<<<<<<< HEAD
     })
 
     it('Verify user can Sort A to Z', () => {
@@ -83,19 +87,24 @@ describe('Sort and Filter', () => {
 
     it('Verify user can filter by pants', () => {
         cy.get(ProductsPage.selectFilter).select('pant');   // Select Pants filter
-        cy.wait(1500);
-        cy.get(ProductsPage.selectFilter).should('have.value', 'pant');
-        cy.get(ProductsPage.productCategory).each(($element, index) => {
-            expect($element.text()).equal('pants');
-        })
+=======
+    })
 
+    it('Verify user can filter by pants category', () => {
+        cy.get(ProductsPage.selectFilter).select('pant');                   // Select Pants filter
+>>>>>>> 26c3bd7c85be9887e3bcd5efa276aa0c3e75984a
+        cy.wait(1500);
+        cy.get(ProductsPage.selectFilter).should('have.value', 'pant');     // Checks Pants is selected in the filter 
+        cy.get(ProductsPage.productCategory).each(($element, index) => {
+            expect($element.text()).equal('pants');                         // Checks each Product has category pants
+        })
     })
 
     it('Validate Reset filters button removes all filters', () => {
         cy.get(ProductsPage.selectFilter).select('pant');
         cy.get(ProductsPage.selectSort).select('aToZ');
-        cy.get(ProductsPage.btnReset).click();
-        cy.get(ProductsPage.selectFilter).should('have.value', '');
-        cy.get(ProductsPage.selectSort).should('have.value', '');
+        cy.get(ProductsPage.btnReset).click();                              // clicks the reset filter button
+        cy.get(ProductsPage.selectFilter).should('have.value', '');         // Checks Category has no filter
+        cy.get(ProductsPage.selectSort).should('have.value', '');           // Checks No sort is slected
     })
 })
