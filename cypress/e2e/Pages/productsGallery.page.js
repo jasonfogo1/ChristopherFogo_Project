@@ -40,7 +40,7 @@ class ProductPage {
     }
 
     AddToCartButtons(prodname) {
-        prodname = '[data-item-name="' + prodname + '"]'//accept 
+        prodname = '[data-item-name="' + prodname + '"]'    
         return prodname;
     }
 

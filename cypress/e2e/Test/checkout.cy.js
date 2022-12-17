@@ -16,8 +16,8 @@ describe('Checkout', () => {
                 cy.get('[type="password"]').type("Password1", { log: false });
                 cy.get("[name='submit']").click();
             });
-
     })
+
     it('Verify user can enter billing info.',()=>{
         let product='Quality Cargo Pants'
         cy.wait(3500);
@@ -25,11 +25,10 @@ describe('Checkout', () => {
         cy.wait(2500);
         cy.get(CartPage.btnCheckout).click({force:true});
         BillingPage.addBillingInfo("jason fogo","volevelowa-69345@yopmail.com",
-        "pasiley St","3","Kingston","Jamaica","St Andrew","00000");
-        cy.get(BillingPage.allfields).each(($element)=>{
-            expect($element).not.to.be.empty;
+        "pasiley St","3","Kingston","Jamaica","St Andrew","00000");                 // Calls function to add data to each textbox
+        cy.get(BillingPage.allfields).each(($element)=>{                            // loops through each textbox
+            expect($element).not.to.be.empty;                                       // Checks if any textbox is empty
         });
-
     })
 
     it('Validate user is not able to continue with an invalid Email',()=>{
@@ -37,7 +36,7 @@ describe('Checkout', () => {
         cy.wait(3500);
         ProductPage.addProductToCart(product);                          // Adds a product to the cart
         cy.wait(2500);
-        cy.get(CartPage.btnCheckout).click({force:true});               // clicks the Checkout button
+        cy.get(CartPage.btnCheckout).click({force:true});               // Clicks the Checkout button
         BillingPage.addBillingInfo("jason fogo","invalid",
         "pasiley St","3","Kingston","Jamaica","St Andrew","00000");     // adds info into Billing Info Fields
         cy.get(BillingPage.errorMsg).should('have.text',' Please provide a valid email address '); // checks the error message for invalid emails
@@ -53,6 +52,6 @@ describe('Checkout', () => {
         "pasiley St","3","Kingston","Jamaica","St Andrew","00000");     // adds info into Billing Info Fields
         BillingPage.addCardinfo('4242 4242 4242 4242','0123','123');    // adds payment info
         cy.wait(2500);
-        cy.get(OrderCompletePage.completeMsg).should('have.text','Thank you for your order');
+        cy.get(OrderCompletePage.completeMsg).should('have.text','Thank you for your order');   // Checks message confirming order
     })
 })

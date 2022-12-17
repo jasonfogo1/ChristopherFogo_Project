@@ -16,35 +16,34 @@ describe('Add to Cart', () => {
                 cy.get('[type="password"]').type("Password1", { log: false });
                 cy.get("[name='submit']").click();
             });
-
     })
-    it('Verify a user can add a product to the cart from product details page.', () => {
-        PDetailsPage.addToCart();
-        cy.get(CartPage.cartIcon).should('have.text', ' 1 ');                           //Checks if the an item has been added to the cart
-        cy.get(CartPage.topCartItem).should('have.text', ' Quality Mousepad ');         //Checks if item added to cart is the correct item
 
+    it('Verify a user can add a product to the cart from product details page.', () => {
+        PDetailsPage.addToCart();                                                       // Calls function to add product to cart
+        cy.get(CartPage.cartIcon).should('have.text', ' 1 ');                           // Checks if the an item has been added to the cart
+        cy.get(CartPage.topCartItem).should('have.text', ' Quality Mousepad ');         // Checks if item added to cart is the correct item
     })
 
     it('Verify a user can add a product to the cart from Products Gallery page.', () => {
         let product = 'Quality Mousepad'
         ProductPage.addProductToCart(product);
-        cy.get(CartPage.cartIcon).should('have.text', ' 1 ');                             //Checks if the an item has been added to the cart
-        cy.get(CartPage.topCartItem).should('have.text', ' ' + product + ' ');                //Checks if item added to cart is the correct item
-
+        cy.get(CartPage.cartIcon).should('have.text', ' 1 ');                             // Checks if the an item has been added to the cart
+        cy.get(CartPage.topCartItem).should('have.text', ' ' + product + ' ');            // Checks if item added to cart is the correct item
     })
+
     it('Verify a user can add multiple products to the cart from Products Gallery page.', () => {
         let product = 'Quality Pink Pants'
         ProductPage.addProductToCart(product);                                            // Adds Item defined as product to cart
         cy.wait(2500);
-        cy.get(CartPage.cartIcon).should('have.text', ' 1 ');                             //Checks if the an item has been added to the cart
-        cy.get(CartPage.topCartItem).should('have.text', ' ' + product + ' ');                //Checks if item added to cart is the correct item
+        cy.get(CartPage.cartIcon).should('have.text', ' 1 ');                             // Checks if the an item has been added to the cart
+        cy.get(CartPage.topCartItem).should('have.text', ' ' + product + ' ');            // Checks if item added to cart is the correct item
         cy.get(CartPage.btnContinueShopping).click()
         cy.wait(2500);
         let product2 = 'Quality Hooded Sweatshirt'
-        ProductPage.addProductToCart(product2);
+        ProductPage.addProductToCart(product2);                                           // Adds Item defined as product to cart  
         cy.wait(2500);
-        cy.get(CartPage.cartIcon).should('have.text', ' 2 ');                             //Checks if the an item has been added to the cart
-        cy.get(CartPage.topCartItem).should('have.text', ' ' + product2 + ' ');                //Checks if item added to cart is the correct item
+        cy.get(CartPage.cartIcon).should('have.text', ' 2 ');                             // Checks if the an item has been added to the cart
+        cy.get(CartPage.topCartItem).should('have.text', ' ' + product2 + ' ');           //Checks if item added to cart is the correct item
     })
 })
 

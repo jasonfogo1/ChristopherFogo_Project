@@ -20,18 +20,21 @@ describe('Product Gallary', () => {
         cy.url().should('eq', 'https://ui-automation-camp.vercel.app/products')
 
     })
+    
     it('Verify each product has a Name', () => {
         cy.get(ProductPage.productName).each(($element, index) => {
             expect($element.text()).to.not.be.null;                //Checks each product has a has a name 
             expect($element).to.be.visible;                        //Checks if Price is Displayed
         })
     })
+
     it('Verify each product has a price', () => {
         cy.get(ProductPage.productPrice).each(($element, index) => {
             expect($element.text()).to.include('$');                //Checks each product has a price
             expect($element).to.be.visible;                         //Checks if Price is Displayed
         })
     })
+
     it('Verify clicking on a product image will redirect to product details page',()=>{
         cy.get(ProductPage.qualityMug).scrollIntoView();
         cy.wait(1500);

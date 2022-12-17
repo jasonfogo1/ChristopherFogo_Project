@@ -1,11 +1,6 @@
 class CartPage{
-    // get (){
-    //     return('#signInOrRegister');
-    // }
-    createSelector(prodname){
-        prodname=('//h2[contains(text(),"'+prodname+'")]')
-        return prodname;   
-    }
+
+    
     get viewDetailedCArt(){
         return('button.snipcart-button-link');
     }
@@ -32,6 +27,10 @@ class CartPage{
     }
     get btnCheckout(){
         return('.snipcart-button-primary');
+    }
+    createSelector(prodname){
+        prodname=('//h2[contains(text(),"'+prodname+'")]')
+        return prodname;   
     }
     
 }
