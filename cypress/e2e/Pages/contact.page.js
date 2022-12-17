@@ -23,6 +23,9 @@ class ContactPage{
     get errorInputMsg(){
         return('[id="field-:r6:-feedback"]');
     }
+    get errorInputEmail(){
+        return('[id="field-:r4:-feedback"]');
+    }
     addInfo(firstname,lastname,email,subject,msg){
         cy.get(this.inputFirstname).type(firstname);
         cy.get(this.inputLastname).type(lastname);

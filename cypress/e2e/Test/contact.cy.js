@@ -16,9 +16,9 @@ describe('Contact',()=>{
         cy.get(ContactPage.successMsg).should('not.exist'); 
     })
     it('Validate user can not send message without entering an email',()=>{
-        ContactPage.addInfoNoMsg('Jay','Grey','Test','This is a test');
+        ContactPage.addInfoNoEmail('Jay','Grey','Test','This is a test');
         cy.get(ContactPage.btnSend).click();
-        cy.get(ContactPage.errorInputMsg).should('have.text','Field is required!')
+        cy.get(ContactPage.errorInputEmail).should('have.text','Field is required!')
         cy.get(ContactPage.successMsg).should('not.exist'); 
     })
 })
