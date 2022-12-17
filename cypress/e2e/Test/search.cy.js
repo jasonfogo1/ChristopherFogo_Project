@@ -6,12 +6,12 @@ describe('Search by Name', () => {
     beforeEach(() => {
         cy.visit('/products');
     })
-
-    it('Validate products displayed when a search in done .',()=>{
+    
+    it('Validate products displayed when a search is done .',()=>{
         let name='Quality Fitted Hat';
         cy.get(ProductsPage.inputsearchName).type(name);
         cy.get(ProductsPage.productName).each(($element, index) => {
-            expect($element.text()).contains(name, { matchCase: false });
+            expect($element.text()).contains(name, { matchCase: false });   // Checks the name of the product found is the same as name searched
         })
     })
     
