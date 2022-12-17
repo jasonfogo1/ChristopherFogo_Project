@@ -1,6 +1,7 @@
 import HomePage from "./home.page";
 
 class LoginPage {
+    /*  Selectors    */
     get inputEmail() {
         return ('//*[@id="1-email"]');
     }
@@ -16,12 +17,13 @@ class LoginPage {
     get passwordErrorMsg(){
         return('.animated.fadeInUp');
     }
-    
+    /*  Methods */
     login(email, password) {
         cy.get(this.inputEmail).type(email);
         cy.get(this.inputPassword).type(password);
         cy.get(this.btnSubmit).click();
     }
+
     signup(email, password) {
         cy.get(this.signUpTab).click();
         cy.get(this.inputEmail).type(email);
