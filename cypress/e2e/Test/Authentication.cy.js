@@ -13,7 +13,7 @@ describe('Authentication', () => {
             { args: {} },
             ({ }) => {
                 cy.get('div.auth0-lock-tabs-container').click();
-                cy.get('[type="email"]').type("testing3@yopmail.com");    //Enters a unregistered Email
+                cy.get('[type="email"]').type("testing6@yopmail.com");    //Enters a unregistered Email
                 cy.get('[type="password"]').type("Password1");
                 cy.get("[name='submit']").click();
                 cy.wait(1500);
